@@ -18,7 +18,7 @@ public class MovableThread extends Thread{
                 movable.getPosition().getY() > -1 && movable.getPosition().getY() < movable.getGame().getHeight()){
             movable.move(movable.getAstronaut());
             try {
-                sleep(2);
+                Thread.sleep(5);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

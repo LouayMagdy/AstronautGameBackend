@@ -10,6 +10,10 @@ public class Astronaut implements IAstronaut{
     private int life;
     private int collectedFood;
 
+    public Astronaut(List<Circle> circles) {
+        this.circles = circles;
+    }
+
     public Astronaut(List<Circle> circles, int life, int collectedFood) {
         this.circles = circles;
         this.life = life;

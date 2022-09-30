@@ -22,6 +22,11 @@ public class FactoryThread extends Thread{
             IMovIntrinsic iMovIntrinsic = (x < 1)? IntrinsicFood.getInstance() : IntrinsicRock.getIntrinsicRock();
             this.game.createMovable(iMovIntrinsic);
             System.out.println("new movable created");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 }

@@ -11,4 +11,5 @@ public interface IMovable {
     IAstronaut getAstronaut();
     String getMoverFn();
     void move(IAstronaut astronaut);
+    String getType(); ///for Serialization concerns
 }

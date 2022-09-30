@@ -2,6 +2,9 @@ package com.example.astronautgamebackend.GameService;
 
 import com.example.astronautgamebackend.GameService.Astronaut.IAstronaut;
 import com.example.astronautgamebackend.GameService.Movables.IMovIntrinsic;
+import com.example.astronautgamebackend.GameService.Movables.IMovable;
+
+import java.util.List;
 
 public interface IGame {
     void createMovable(IMovIntrinsic intrinsic); // thread of more priority
@@ -16,6 +19,7 @@ public interface IGame {
     void setDimensions(int w, int h);
     int getWidth();
     int getHeight();
-
     boolean isRunning();
+    List<IMovable> getMovables();
+    List<Integer> getEmptyIndices();
 }

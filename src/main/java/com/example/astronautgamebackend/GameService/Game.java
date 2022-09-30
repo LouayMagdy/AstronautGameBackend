@@ -21,6 +21,10 @@ public class Game implements IGame{
     private List<IMovable> movables;
     private List<Integer> emptyIndices;
 
+    public Game(IAstronaut astronaut) {
+        this.astronaut = astronaut;
+    }
+
     public Game(int width, int height) {
         this.width = width;
         this.height = height;
@@ -82,4 +86,9 @@ public class Game implements IGame{
         this.width = w;
         this.height = h;
     }
+    @Override
+    public List<IMovable> getMovables(){return this.movables;}
+
+    @Override
+    public List<Integer> getEmptyIndices(){return this.emptyIndices;}
 }

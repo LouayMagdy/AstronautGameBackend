@@ -45,4 +45,9 @@ public class Movable implements IMovable{
     public void move(IAstronaut astronaut) {
         this.point = this.iMovIntrinsic.move(this.game, this.getMoverFn(), this.xChanger, this.point);
     }
+
+    @Override
+    public String getType() {
+        return (iMovIntrinsic instanceof IntrinsicRock)? "rock" : "food";
+    }
 }
