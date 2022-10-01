@@ -14,3 +14,4 @@ The Game is developed using Spring Boot Framework </br>
   - WebSocket and Http protocols
   - Gson Serialization and Deserialization
   - Dependency Inversion
+  - Newton's law for curve Interpolation
