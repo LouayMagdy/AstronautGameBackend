@@ -4,11 +4,11 @@ The Backend Server application for a game about an astroanut trying to escape fr
 The Game is developed using Spring Boot Framework </br>
 ### Design Patterns Applied:
   - Flyweight Design pattern
-  - Singleton Design Pattern : when dealing with resources and factories
-  - Bridge Design Pattern : for moving the missles
-  - Factory Method Design Pattern : for producing the missles
-  - Facade Design Pattern : for dealing with Gson Library
-  - Decorator Design Pattern: used in Registration Classes
+  - Singleton Design Pattern ... when dealing with resources and factories
+  - Bridge Design Pattern ... for moving the missles
+  - Factory Method Design Pattern ... for producing the missles
+  - Facade Design Pattern ... for dealing with Gson Library
+  - Decorator Design Pattern ... used in Registration Classes
 ### Technologies used And Principles followed:
   - Java Threads and Synchronization
   - WebSocket and Http protocols
