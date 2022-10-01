@@ -15,7 +15,7 @@ public class SignUpMode implements ICheckerMode{
 
     @Override
     public int doesExist(NormalUser user) {
-        List<NormalUser> users = FileParser.parseUsersFile("AllUsers");
+        List<NormalUser> users = FileParser.parseUsersFile("AllUsers", null);
         for (int i = 0; i < users.size(); i++) {
             if (users.get(i).getUserName().equals(user.getUserName()) &&
                     users.get(i).getPassword().equals(user.getPassword())) {

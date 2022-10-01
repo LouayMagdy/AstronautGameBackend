@@ -16,11 +16,13 @@ public class CustomGameSerializerDuringGame implements JsonSerializer<Game> {
         JsonObject jsonGame = new JsonObject();
         List<IMovable> movables = new ArrayList<>(game.getMovables());
         List<Integer> emptyIndices = game.getEmptyIndices();
-        for (int i = 0; i < emptyIndices.size(); i++) movables.remove((int) emptyIndices.get(i));
+        for (int i = 0; i < emptyIndices.size(); i++)
+            if(emptyIndices.get(i) < movables.size()) movables.remove((int) emptyIndices.get(i));
         JsonArray jsonMovables = new JsonArray();
         gsonBuilder.registerTypeAdapter(Movable.class, new MovableSerializer());
         for (IMovable movable: movables) jsonMovables.add(gsonBuilder.create().toJson(movable));
-        jsonGame.add("movables", jsonMovables);
-        return jsonGame;
+        jsonGame.addProperty("life", game.getAstronaut().getLife());
+        jsonGame.add("movables", jsonMovables.getAsJsonArray());
+        return jsonGame.getAsJsonObject();
     }
 }

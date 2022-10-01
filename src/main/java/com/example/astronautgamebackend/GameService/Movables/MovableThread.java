@@ -14,11 +14,14 @@ public class MovableThread extends Thread{
     }
     @Override
     public void run(){
-        while (movable.getPosition().getX() > -1 && movable.getPosition().getX() < movable.getGame().getWidth() &&
-                movable.getPosition().getY() > -1 && movable.getPosition().getY() < movable.getGame().getHeight()){
+        while (movable.getPosition().getX() > -1 && movable.getPosition().getX() <= movable.getGame().getWidth() &&
+                movable.getPosition().getY() > -1 && movable.getPosition().getY() <= movable.getGame().getHeight() &&
+                movable.getGame().isRunning()){
+//            System.out.println("curve: " + movable.getMoverFn() + "Point" + movable.getPosition().toString());
+            System.out.println("life = " + movable.getAstronaut().getLife());
             movable.move(movable.getAstronaut());
             try {
-                Thread.sleep(5);
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

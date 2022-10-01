@@ -16,8 +16,9 @@ public class Evaluator {
                     int k;
                     for (k = 0; k < termSplitted[j].length(); k++)
                         if(termSplitted[j].charAt(k) == '-') break;
-                    if(k == termSplitted[j].length()){
+                    if(k == termSplitted[j].length() || k == 0){
                         product = Double.parseDouble(termSplitted[j]);
+                        if (Double.isNaN(product)) product = 0;
                         continue;
                     }
                     product *= (Double.parseDouble(termSplitted[j].substring(0, k)) -

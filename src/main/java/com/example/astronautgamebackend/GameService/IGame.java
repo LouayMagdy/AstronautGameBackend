@@ -20,6 +20,9 @@ public interface IGame {
     int getWidth();
     int getHeight();
     boolean isRunning();
+    void terminateGame();
     List<IMovable> getMovables();
     List<Integer> getEmptyIndices();
+    int getUserID();
+    void setId(int id);
 }

@@ -11,10 +11,10 @@ public class MovableSerializer implements JsonSerializer<Movable> {
     public JsonElement serialize(Movable movable, Type type, JsonSerializationContext jsonSerializationContext) {
         JsonObject movableJson = new JsonObject();
         JsonObject point = new JsonObject();
-        point.add("x", new JsonPrimitive(movable.getPosition().getY()));
-        point.add("y", new JsonPrimitive(movable.getPosition().getY()));
-        movableJson.add("point", point);
-        movableJson.add("type", new JsonPrimitive(movable.getType()));
-        return movableJson;
+        point.addProperty("x", movable.getPosition().getX());
+        point.addProperty("y", movable.getPosition().getY());
+        movableJson.addProperty("type", movable.getType());
+        movableJson.add("point", point.getAsJsonObject());
+        return movableJson.getAsJsonObject();
     }
 }

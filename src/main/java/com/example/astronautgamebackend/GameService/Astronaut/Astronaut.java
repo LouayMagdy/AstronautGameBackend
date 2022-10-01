@@ -12,6 +12,8 @@ public class Astronaut implements IAstronaut{
 
     public Astronaut(List<Circle> circles) {
         this.circles = circles;
+        this.life = 100;
+        this.collectedFood = 0;
     }
 
     public Astronaut(List<Circle> circles, int life, int collectedFood) {
@@ -30,7 +32,10 @@ public class Astronaut implements IAstronaut{
     }
 
     @Override
-    public void setLife(int change) {this.life += change;}
+    public void setLife(int change) {
+        this.life += change;
+        this.life = Math.min(100, Math.max(0, this.life));
+    }
     @Override
     public int getLife() {return life;}
 

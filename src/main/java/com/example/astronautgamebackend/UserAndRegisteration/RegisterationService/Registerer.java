@@ -2,6 +2,7 @@ package com.example.astronautgamebackend.UserAndRegisteration.RegisterationServi
 
 import com.example.astronautgamebackend.JsonFilesReaderWriter.FileParser;
 import com.example.astronautgamebackend.JsonFilesReaderWriter.FileWriter;
+import com.example.astronautgamebackend.JsonParserWriter.userSerializer.CustomUserSerializer;
 import com.example.astronautgamebackend.UserAndRegisteration.RegisterationService.Append.AppendIIMode;
 import com.example.astronautgamebackend.UserAndRegisteration.RegisterationService.Append.AppendMode;
 import com.example.astronautgamebackend.UserAndRegisteration.RegisterationService.Append.IMode;
@@ -25,7 +26,7 @@ public class Registerer implements IRegisterer{
         ICheckerMode mode = SignUpMode.getInstance();
         int index = mode.doesExist(user);
         if (index == -1){
-            IMode appendMode = new AppendIIMode(new AppendMode());
+            IMode appendMode = AppendIIMode.getInstance(AppendMode.getInstance());
             return appendMode.doFunction(user);
         }
         return -1;
@@ -37,7 +38,7 @@ public class Registerer implements IRegisterer{
         int index = modeIn.doesExist(user);
         if (index == -1) return -1;
         if (index == -2){
-            IMode appendMode = new AppendMode();
+            IMode appendMode = AppendMode.getInstance();
             return appendMode.doFunction(user);
         }
         return user.getID();
@@ -48,9 +49,14 @@ public class Registerer implements IRegisterer{
         ICheckerMode modeIn = new SignInMode(null);
         int index = modeIn.doesExist(user);
         if (index != -1){
-            List<NormalUser> list = FileParser.parseUsersFile("LoggedUsers");
+            List<NormalUser> list = FileParser.parseUsersFile("LoggedUsers", null);
             list.remove(user);
-            FileWriter.writeTo(list, "LoggedUsers");
+            FileWriter.writeTo(list, "LoggedUsers", new CustomUserSerializer());
         }
+    }
+
+    @Override
+    public boolean isLoggedIn(NormalUser user) {
+        return FileParser.parseUsersFile("LoggedUsers", null).contains(user);
     }
 }

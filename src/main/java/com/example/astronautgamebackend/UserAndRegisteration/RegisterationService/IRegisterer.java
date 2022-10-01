@@ -6,4 +6,6 @@ public interface IRegisterer {
     int signUp(NormalUser user);
     int signIn(NormalUser user);
     void logOut(NormalUser user);
+
+    boolean isLoggedIn(NormalUser user);
 }

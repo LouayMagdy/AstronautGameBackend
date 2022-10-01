@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Random;
 
 public class Game implements IGame{
+    private int userId;
     private IAstronaut astronaut;
     private int width;
     private int height;
@@ -21,19 +22,14 @@ public class Game implements IGame{
     private List<IMovable> movables;
     private List<Integer> emptyIndices;
 
-    public Game(IAstronaut astronaut) {
-        this.astronaut = astronaut;
-    }
-
-    public Game(int width, int height) {
+    public Game(int width, int height, IAstronaut astronaut, int Id) {
+        this.userId = Id;
         this.width = width;
         this.height = height;
         this.isRunning = true;
         this.movables = new ArrayList<>();
         this.emptyIndices = new ArrayList<>();
-        List<Circle> circles = new ArrayList<>();
-        /*add some circles */
-        this.astronaut = new Astronaut(circles, 100, 0);
+        this.astronaut = astronaut;
     }
 
     @Override
@@ -60,6 +56,7 @@ public class Game implements IGame{
             y = movables.size();
             movables.add(movable);
         }
+//        for (int i = 0; i < movables.size(); i++) System.out.println(movables.get(i).getPosition().toString());
         MovableThread thread = new MovableThread(movable, this.emptyIndices, y);
         thread.start();
     }
@@ -91,4 +88,13 @@ public class Game implements IGame{
 
     @Override
     public List<Integer> getEmptyIndices(){return this.emptyIndices;}
+
+    @Override
+    public void terminateGame(){this.isRunning = false;}
+
+    @Override
+    public int getUserID() {return this.userId;}
+
+    @Override
+    public void setId(int id) {this.userId = id;}
 }
