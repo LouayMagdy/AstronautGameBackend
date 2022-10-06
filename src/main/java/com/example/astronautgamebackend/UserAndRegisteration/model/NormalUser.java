@@ -16,16 +16,7 @@ public class NormalUser{
     private Score score;
 
 
-    public NormalUser(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
 
-    public NormalUser(String userName, int iD, Score score) {
-        this.userName = userName;
-        this.iD = iD;
-        this.score = score;
-    }
 
     public NormalUser(String fullName, String userName, String password, boolean gender) {
         this.fullName = fullName;
@@ -39,6 +30,17 @@ public class NormalUser{
         this.userName = userName;
         this.password = password;
         this.gender = gender;
+        this.score = score;
+    }
+
+    public NormalUser(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
+    public NormalUser(String userName, int iD, Score score) {
+        this.userName = userName;
+        this.iD = iD;
         this.score = score;
     }
 

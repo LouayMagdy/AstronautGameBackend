@@ -33,5 +33,14 @@ public class RegisterationController {
     }
 
     @GetMapping("/isLogged/{userID}")
-    public boolean isLogged(@PathVariable int userID){return registerer.isLoggedIn(new NormalUser(userID));}
+    public boolean isLogged(@PathVariable int userID){
+        System.out.println("check");
+        try {
+            return registerer.isLoggedIn(new NormalUser(userID));
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

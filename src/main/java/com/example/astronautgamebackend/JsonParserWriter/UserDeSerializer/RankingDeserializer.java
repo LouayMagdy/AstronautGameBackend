@@ -11,7 +11,7 @@ public class RankingDeserializer implements JsonDeserializer<NormalUser> {
     public NormalUser deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
         JsonObject userJson = jsonElement.getAsJsonObject();
         System.out.println("==>" + userJson.get("score").getAsJsonObject().get("gamesPlayed"));
-        NormalUser user = new NormalUser(userJson.get("userName").getAsString().substring(1, userJson.get("userName").getAsString().length() -1 )
+        NormalUser user = new NormalUser(userJson.get("userName").getAsString()
                 , userJson.get("iD").getAsInt(), new Gson().fromJson(userJson.get("score"), Score.class));
         System.out.println(user.toString());
         return user;

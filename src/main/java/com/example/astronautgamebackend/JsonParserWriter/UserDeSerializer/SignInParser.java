@@ -9,7 +9,7 @@ public class SignInParser {
     public static NormalUser parse(String user){
         gsonBuilder.registerTypeAdapter(NormalUser.class, new CustomDeserializerForRegister());
         NormalUser normalUser = gsonBuilder.create().fromJson(user, NormalUser.class);
-        System.out.println(normalUser.toString());
+        System.out.println(normalUser.getUserName() + " " + normalUser.getPassword());
         return normalUser;
     }
 }

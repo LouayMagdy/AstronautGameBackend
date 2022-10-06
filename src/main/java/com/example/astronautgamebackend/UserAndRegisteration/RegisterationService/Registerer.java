@@ -57,6 +57,12 @@ public class Registerer implements IRegisterer{
 
     @Override
     public boolean isLoggedIn(NormalUser user) {
-        return FileParser.parseUsersFile("LoggedUsers", null).contains(user);
+        try {
+            return FileParser.parseUsersFile("LoggedUsers", null).contains(user);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }

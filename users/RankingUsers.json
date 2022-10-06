@@ -1,11 +1,29 @@
 [
   {
-    "userName": "LOuay",
-    "iD": 2,
+    "userName": "LOL",
+    "iD": 1,
     "score": {
       "avgLife": 0,
-      "avgCollectedFood": 1,
-      "gamesPlayed": 2
+      "avgCollectedFood": 0,
+      "gamesPlayed": 0
+    }
+  },
+  {
+    "userName": "LOL",
+    "iD": 1,
+    "score": {
+      "avgLife": 0,
+      "avgCollectedFood": 0,
+      "gamesPlayed": 0
+    }
+  },
+  {
+    "userName": "LOL",
+    "iD": 1,
+    "score": {
+      "avgLife": 0,
+      "avgCollectedFood": 0,
+      "gamesPlayed": 0
     }
   }
 ]

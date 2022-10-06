@@ -20,14 +20,16 @@ import java.util.List;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class GameController {
     @GetMapping("/Rankings")
-    public String getRankings(){
+    public String[] getRankings(){
         JsonArray jsonArray = new JsonArray();
         List<NormalUser> users = FileParser.parseUsersFile("RankingUsers", new RankingDeserializer());
         System.out.println(users.get(0).getScore().getGamePlayed());
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(NormalUser.class, new CustomRankingSerializer());
-        Gson gson = gsonBuilder.setPrettyPrinting().create();
+        Gson gson = gsonBuilder.create();
         for(int i = 0; i< users.size(); i++) jsonArray.add(gson.toJson(users.get(i)));
-        return jsonArray.getAsString();
+        String[] res = new String[jsonArray.size()];
+        for(int i = 0; i< users.size(); i++) res[i] = jsonArray.get(i).getAsString();
+        return res;
     }
 }

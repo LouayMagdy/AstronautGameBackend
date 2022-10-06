@@ -1,16 +1,9 @@
 [
   {
     "fullName": "Louay Magdy",
-    "userName": "LOL0",
-    "password": "1233",
+    "userName": "LOL",
+    "password": "1254",
     "gender": true,
     "iD": 1
-  },
-  {
-    "fullName": "Louay Magdy",
-    "userName": "LOuay",
-    "password": "12334",
-    "gender": true,
-    "iD": 2
   }
 ]
