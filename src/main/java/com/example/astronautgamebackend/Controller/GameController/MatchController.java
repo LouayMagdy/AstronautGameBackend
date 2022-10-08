@@ -56,6 +56,7 @@ public class MatchController {
     @OnClose
     public void onClose(Session session) throws IOException {
         IGame ourGame = games.get(session.getId());
+        ourGame.terminateGame();
         games.remove(session.getId());
         if (!ourGame.isRunning()) RankingEvaluator.getInstance().saveGame(ourGame);
         session.getBasicRemote().sendText("Game Over");

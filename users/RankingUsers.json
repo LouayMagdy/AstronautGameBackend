@@ -7,23 +7,5 @@
       "avgCollectedFood": 0,
       "gamesPlayed": 0
     }
-  },
-  {
-    "userName": "LOL",
-    "iD": 1,
-    "score": {
-      "avgLife": 0,
-      "avgCollectedFood": 0,
-      "gamesPlayed": 0
-    }
-  },
-  {
-    "userName": "LOL",
-    "iD": 1,
-    "score": {
-      "avgLife": 0,
-      "avgCollectedFood": 0,
-      "gamesPlayed": 0
-    }
   }
 ]

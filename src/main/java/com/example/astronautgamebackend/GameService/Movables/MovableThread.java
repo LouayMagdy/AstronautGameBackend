@@ -21,7 +21,7 @@ public class MovableThread extends Thread{
             System.out.println("life = " + movable.getAstronaut().getLife());
             movable.move(movable.getAstronaut());
             try {
-                Thread.sleep(500);
+                Thread.sleep(600);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
