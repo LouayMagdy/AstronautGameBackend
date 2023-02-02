@@ -12,8 +12,10 @@ public class NewtonInterpolationService {
             matrix[i][1] = points.get(i).getY();
         }
         for (int i = 1; i < points.size(); i++)
-            for (int j = 0; j < points.size() - i; j++)
+            for (int j = 0; j < points.size() - i; j++) {
                 matrix[i + j][i + 1] = (matrix[i + j][i] - matrix[i + j - 1][i]) / (matrix[i + j][0] - matrix[j][0]);
+                if (matrix[i + j][i + 1] > Integer.MAX_VALUE) matrix[i + j][i + 1] = Integer.MAX_VALUE;
+            }
         String eqn = "";
         for (int i = 0; i < points.size(); i++) {
             eqn += "(" + matrix[i][i + 1] + ")";

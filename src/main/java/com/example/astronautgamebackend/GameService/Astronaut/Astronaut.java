@@ -32,7 +32,7 @@ public class Astronaut implements IAstronaut{
     }
 
     @Override
-    public void setLife(int change) {
+    public void changeLife(int change) {
         this.life += change;
         this.life = Math.min(100, Math.max(0, this.life));
     }
@@ -42,5 +42,5 @@ public class Astronaut implements IAstronaut{
     @Override
     public int getCollectedFood() {return this.collectedFood;}
     @Override
-    public void setCollectedFood(int change) {this.collectedFood += change;}
+    public void eat(int change) {this.collectedFood += change;}
 }

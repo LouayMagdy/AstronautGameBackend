@@ -1,7 +1,7 @@
 package com.example.astronautgamebackend.GameService;
 
 import com.example.astronautgamebackend.GameService.Astronaut.IAstronaut;
-import com.example.astronautgamebackend.GameService.Movables.IMovIntrinsic;
+import com.example.astronautgamebackend.GameService.Movables.Intrinsics.IMovIntrinsic;
 import com.example.astronautgamebackend.GameService.Movables.IMovable;
 
 import java.util.List;

@@ -1,23 +1,22 @@
 package com.example.astronautgamebackend.GameService;
 
-import com.example.astronautgamebackend.GameService.Movables.IMovIntrinsic;
-import com.example.astronautgamebackend.GameService.Movables.IntrinsicFood;
-import com.example.astronautgamebackend.GameService.Movables.IntrinsicRock;
+import com.example.astronautgamebackend.GameService.Movables.Intrinsics.IMovIntrinsic;
+import com.example.astronautgamebackend.GameService.Movables.Intrinsics.IntrinsicFood;
+import com.example.astronautgamebackend.GameService.Movables.Intrinsics.IntrinsicRock;
 
 import java.util.Random;
 
 public class FactoryThread extends Thread{
-    private final long creationTime;
-    private IGame game;
+    private final IGame game;
+    private final Random random;
     public FactoryThread(IGame game){
         this.game = game;
-        this.creationTime = System.currentTimeMillis();
+        this.random = new Random();
     }
     @Override
     public void run(){
-        Random random = new Random();
-        while (System.currentTimeMillis() - creationTime <= 1000 * 120 && game.isRunning()){
-            if(this.game.getMovableCount() == 20) continue;
+        while (game.isRunning()){
+            if(this.game.getMovableCount() == 25) continue;
             int x = random.nextInt(3);
             IMovIntrinsic iMovIntrinsic = (x < 1)? IntrinsicFood.getInstance() : IntrinsicRock.getIntrinsicRock();
             this.game.createMovable(iMovIntrinsic);

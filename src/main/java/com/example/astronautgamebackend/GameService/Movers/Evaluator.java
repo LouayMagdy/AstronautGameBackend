@@ -3,7 +3,7 @@ package com.example.astronautgamebackend.GameService.Movers;
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
 
 public class Evaluator {
-    public static double eval(String eqn, int x){
+    public static double eval(String eqn, int x, int y){
         try {
             double result = 0;
             eqn = eqn.replaceAll("x", "" + x);
@@ -15,7 +15,7 @@ public class Evaluator {
                     termSplitted[j] = termSplitted[j].replaceAll("\\(", "").replaceAll("\\)", "");
                     int k;
                     for (k = 0; k < termSplitted[j].length(); k++)
-                        if(termSplitted[j].charAt(k) == '-') break;
+                        if(termSplitted[j].charAt(k) == '-' && (k == 0 || termSplitted[j].charAt(k - 1) != 'E')) break;
                     if(k == termSplitted[j].length() || k == 0){
                         product = Double.parseDouble(termSplitted[j]);
                         if (Double.isNaN(product)) product = 0;
@@ -30,7 +30,7 @@ public class Evaluator {
         }
         catch (Exception e){
             e.printStackTrace();
-            return 0;
+            return y;
         }
     }
     public static int getDistance(Point p1, Point p2){

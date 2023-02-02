@@ -3,7 +3,7 @@ package com.example.astronautgamebackend.GameService.Movables;
 import java.util.List;
 
 public class MovableThread extends Thread{
-    private IMovable movable;
+    private final IMovable movable;
     private final List<Integer> emptyIndices;
     private final int index;
 
@@ -19,7 +19,8 @@ public class MovableThread extends Thread{
                 movable.getGame().isRunning()){
 //            System.out.println("curve: " + movable.getMoverFn() + "Point" + movable.getPosition().toString());
             System.out.println("life = " + movable.getAstronaut().getLife());
-            movable.move(movable.getAstronaut());
+            boolean result = movable.move(movable.getAstronaut());
+            if(!result) Thread.yield();
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

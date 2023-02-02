@@ -9,8 +9,8 @@ public interface IAstronaut {
     Point getPosition();
     List<Circle> getCircles();
     void setCircles(List<Circle> circles);
-    void setLife(int change);
+    void changeLife(int change);
     int getLife();
     int getCollectedFood();
-    void setCollectedFood(int change);
+    void eat(int change);
 }

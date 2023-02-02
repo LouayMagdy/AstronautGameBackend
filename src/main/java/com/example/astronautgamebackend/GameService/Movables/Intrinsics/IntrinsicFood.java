@@ -1,7 +1,8 @@
-package com.example.astronautgamebackend.GameService.Movables;
+package com.example.astronautgamebackend.GameService.Movables.Intrinsics;
 
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
 import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.Movables.XChanger.XChanger;
 
 public class IntrinsicFood extends IMovIntrinsic{
     private static IntrinsicFood food;
@@ -17,16 +18,13 @@ public class IntrinsicFood extends IMovIntrinsic{
 
     @Override
     protected int getRadius() {
-        return 10;
+        return 17;
     }
 
     @Override
     public synchronized Point move(IGame game, String moverFunction, XChanger xChanger, Point currPos) {
         currPos = super.move(game, moverFunction, xChanger, currPos);
-        if (super.isCollided) {
-            game.getAstronaut().setCollectedFood(1);
-            currPos = new Point(-1, -1);
-        }
+        if (super.isCollided) game.getAstronaut().eat(1);
         super.doesCollide(false);
         return currPos;
     }

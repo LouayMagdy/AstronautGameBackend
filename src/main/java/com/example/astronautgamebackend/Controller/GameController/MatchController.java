@@ -8,12 +8,8 @@ import com.example.astronautgamebackend.GameService.IGame;
 import com.example.astronautgamebackend.GameService.RankingService.RankingEvaluator;
 import com.example.astronautgamebackend.JsonParserWriter.GameDeserializer.GameDeserializer;
 import com.example.astronautgamebackend.JsonParserWriter.GameSerializer.GameSerializerDuringGame;
-import com.example.astronautgamebackend.UserAndRegisteration.model.IUser;
-import com.example.astronautgamebackend.UserAndRegisteration.model.NormalUser;
-import org.springframework.web.context.annotation.ApplicationScope;
 
 import javax.websocket.*;
-import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.ArrayList;

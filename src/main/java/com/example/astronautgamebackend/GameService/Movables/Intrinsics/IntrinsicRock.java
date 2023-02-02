@@ -1,7 +1,8 @@
-package com.example.astronautgamebackend.GameService.Movables;
+package com.example.astronautgamebackend.GameService.Movables.Intrinsics;
 
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
 import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.Movables.XChanger.XChanger;
 
 public class IntrinsicRock extends IMovIntrinsic {
     private int radius;
@@ -23,7 +24,7 @@ public class IntrinsicRock extends IMovIntrinsic {
 
     @Override
     protected int getRadius() {
-        return 15;
+        return 17;
     }
 
     @Override

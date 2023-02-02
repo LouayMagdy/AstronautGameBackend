@@ -3,6 +3,9 @@ package com.example.astronautgamebackend.GameService.Movables;
 import com.example.astronautgamebackend.GameService.Astronaut.IAstronaut;
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
 import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.Movables.Intrinsics.IMovIntrinsic;
+import com.example.astronautgamebackend.GameService.Movables.Intrinsics.IntrinsicRock;
+import com.example.astronautgamebackend.GameService.Movables.XChanger.XChanger;
 import com.example.astronautgamebackend.GameService.Movers.IMover;
 
 public class Movable implements IMovable{
@@ -42,12 +45,20 @@ public class Movable implements IMovable{
     }
 
     @Override
-    public void move(IAstronaut astronaut) {
+    public boolean move(IAstronaut astronaut) {
         this.point = this.iMovIntrinsic.move(this.game, this.getMoverFn(), this.xChanger, this.point);
+        return this.point.getX() != -1 && this.point.getY() != -1;
     }
-
     @Override
     public String getType() {
         return (iMovIntrinsic instanceof IntrinsicRock)? "rock" : "food";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Movable movable = (Movable) o;
+        return point.equals(movable.point) && this.getType().equals(movable.getType());
+    }
+
 }

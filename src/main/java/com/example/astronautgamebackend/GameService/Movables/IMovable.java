@@ -10,6 +10,8 @@ public interface IMovable {
     int addEnergy();
     IAstronaut getAstronaut();
     String getMoverFn();
-    void move(IAstronaut astronaut);
+    boolean move(IAstronaut astronaut);
     String getType(); ///for Serialization concerns
+
+    boolean equals(Object o);
 }
