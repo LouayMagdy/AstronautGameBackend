@@ -1,8 +1,6 @@
 package com.example.astronautgamebackend.GameService;
 
-import com.example.astronautgamebackend.GameService.Astronaut.Astronaut;
 import com.example.astronautgamebackend.GameService.Astronaut.IAstronaut;
-import com.example.astronautgamebackend.GameService.GeometricShapes.Circle;
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
 import com.example.astronautgamebackend.GameService.Movables.*;
 import com.example.astronautgamebackend.GameService.Movers.IMover;
@@ -19,6 +17,7 @@ public class Game implements IGame{
     private int width;
     private int height;
     private boolean isRunning;
+
     private List<IMovable> movables;
     private List<Integer> emptyIndices;
 

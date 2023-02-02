@@ -17,7 +17,7 @@ public class FactoryThread extends Thread{
     public void run(){
         Random random = new Random();
         while (System.currentTimeMillis() - creationTime <= 1000 * 120 && game.isRunning()){
-            if(this.game.getMovableCount() == 25) continue;
+            if(this.game.getMovableCount() == 20) continue;
             int x = random.nextInt(3);
             IMovIntrinsic iMovIntrinsic = (x < 1)? IntrinsicFood.getInstance() : IntrinsicRock.getIntrinsicRock();
             this.game.createMovable(iMovIntrinsic);

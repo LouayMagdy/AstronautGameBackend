@@ -3,9 +3,9 @@
     "userName": "LOL",
     "iD": 1,
     "score": {
-      "avgLife": 0,
+      "avgLife": 75,
       "avgCollectedFood": 0,
-      "gamesPlayed": 0
+      "gamesPlayed": 4
     }
   }
-]
+]]
