@@ -1,10 +1,7 @@
 package com.example.astronautgamebackend.Controller.RegiterationController;
 
-import com.example.astronautgamebackend.JsonParserWriter.UserDeSerializer.SignInParser;
-import com.example.astronautgamebackend.JsonParserWriter.UserDeSerializer.signUpParser;
+import com.example.astronautgamebackend.Controller.Response.Response;
 import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.model.NormalUser;
-import com.example.astronautgamebackend.UserAndRegisteration.RegisterationService.IRegisterer;
-import com.example.astronautgamebackend.UserAndRegisteration.RegisterationService.Registerer;
 import com.example.astronautgamebackend.UserAndRegisteration.RegistrationServiceDB.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

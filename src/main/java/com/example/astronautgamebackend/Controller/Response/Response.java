@@ -1,4 +1,4 @@
-package com.example.astronautgamebackend.Controller.RegiterationController;
+package com.example.astronautgamebackend.Controller.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

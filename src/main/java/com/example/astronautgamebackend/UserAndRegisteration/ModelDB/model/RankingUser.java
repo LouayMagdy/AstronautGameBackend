@@ -21,13 +21,13 @@ public class RankingUser {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private NormalUser user;
 
-    @Basic(optional = false, fetch = FetchType.LAZY)
+    @Basic(optional = false, fetch = FetchType.EAGER)
     private int avgLife;
 
-    @Basic(optional = false, fetch = FetchType.LAZY)
+    @Basic(optional = false, fetch = FetchType.EAGER)
     private int avgCollectedFood;
 
-    @Basic(optional = false, fetch = FetchType.LAZY)
+    @Basic(optional = false, fetch = FetchType.EAGER)
     private int gamesPlayedNum;
 
     public RankingUser(NormalUser user, int avgLife, int avgCollectedFood, int gamesPlayedNum) {

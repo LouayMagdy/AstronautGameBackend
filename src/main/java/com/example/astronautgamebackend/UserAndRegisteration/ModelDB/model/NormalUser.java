@@ -21,15 +21,15 @@ public class NormalUser {
     @Column(length = 100)
     private String fullName;
 
-    @Basic(optional = false, fetch = FetchType.LAZY)
+    @Basic(optional = false, fetch = FetchType.EAGER)
     @Column(unique = true, length = 50)
     private String userName;
 
-    @Basic(optional = false, fetch = FetchType.LAZY)
+    @Basic(optional = false, fetch = FetchType.EAGER)
     @Column(length = 50)
     private String password;
 
-    @Basic(optional = false, fetch = FetchType.LAZY)
+    @Basic(optional = false, fetch = FetchType.EAGER)
     private boolean gender; /// true: male, false: female
 
     @OneToOne(mappedBy = "user")

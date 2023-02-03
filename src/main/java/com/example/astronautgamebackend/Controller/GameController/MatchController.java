@@ -8,6 +8,7 @@ import com.example.astronautgamebackend.GameService.IGame;
 import com.example.astronautgamebackend.GameService.RankingService.RankingEvaluator;
 import com.example.astronautgamebackend.JsonParserWriter.GameDeserializer.GameDeserializer;
 import com.example.astronautgamebackend.JsonParserWriter.GameSerializer.GameSerializerDuringGame;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
@@ -19,19 +20,23 @@ import java.util.Map;
 
 @ServerEndpoint(value = "/AstronautGame/Match", encoders = GameSerializerDuringGame.class, decoders = GameDeserializer.class)
 public class MatchController {
-    Map<String, IGame> games;
+    private final Map<String, IGame> runningGames;
+
+    @Autowired
+    private RankingEvaluator rankingEvaluator;
+
 
     public MatchController() {
-        System.out.println("ws api created");
-        this.games = new HashMap<>();
+        System.out.println("websocket endpoint created");
+        this.runningGames = new HashMap<>();
     }
     @OnOpen
     public void onOpen(Session session) throws IOException, EncodeException {
         // Get session and WebSocket connection
-        System.out.println("someone has started a match");
+        System.out.println("someone has started a match with id: " + session.getId());
         List<Circle> circles = new ArrayList<>();
-        IGame game = new Game(100, 100, new Astronaut(circles), 0);////
-        games.put(session.getId(), game);
+        IGame game = new Game(100, 100, new Astronaut(circles), 0);
+        this.runningGames.put(session.getId(), game);
         game.play();
         session.getBasicRemote().sendObject(game);
     }
@@ -40,21 +45,22 @@ public class MatchController {
     public void onMessage(Session session, Game game) throws IOException, EncodeException {
         // Handle new messages
         System.out.println("a message received from :" + session.getId());
-        IGame ourGame = games.get(session.getId());
-        IAstronaut astronaut = ourGame.getAstronaut();
+        IGame runningGame = this.runningGames.get(session.getId());
+        IAstronaut astronaut = runningGame.getAstronaut();
         astronaut.setCircles(game.getAstronaut().getCircles());
-        ourGame.setDimensions(game.getWidth(), game.getHeight());
-        ourGame.setId(game.getUserID());
-        if (!ourGame.isRunning()) session.getBasicRemote().sendText("Game Over");
-        session.getBasicRemote().sendObject(ourGame);
+        runningGame.setDimensions(game.getWidth(), game.getHeight());
+        runningGame.setId(game.getUserID());
+        if (!runningGame.isRunning()) onClose(session);
+        session.getBasicRemote().sendObject(runningGame);
     }
 
     @OnClose
     public void onClose(Session session) throws IOException {
-        IGame ourGame = games.get(session.getId());
-        ourGame.terminateGame();
-        games.remove(session.getId());
-        if (!ourGame.isRunning()) RankingEvaluator.getInstance().saveGame(ourGame);
+        IGame runningGame = runningGames.get(session.getId());
+        if (runningGame == null) return;
+        runningGame.terminateGame();
+        runningGames.remove(session.getId());
+        if (!runningGame.isRunning()) this.rankingEvaluator.saveGame(runningGame);
         session.getBasicRemote().sendText("Game Over");
     }
 
@@ -62,4 +68,5 @@ public class MatchController {
     public void onError(Throwable throwable) {
         throwable.printStackTrace();
     }
+
 }
