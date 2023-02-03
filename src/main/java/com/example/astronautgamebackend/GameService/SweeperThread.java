@@ -30,7 +30,7 @@ public class SweeperThread extends Thread{
                 movableList.add(toCompare);
             }
             try {
-                Thread.sleep(3500);
+                Thread.sleep(4000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
