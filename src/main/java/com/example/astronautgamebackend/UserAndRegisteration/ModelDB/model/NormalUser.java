@@ -31,7 +31,6 @@ public class NormalUser implements UserDetails {
     private String userName;
 
     @Basic(optional = false, fetch = FetchType.EAGER)
-    @Column(length = 50)
     private String password;
 
     @Basic(optional = false, fetch = FetchType.EAGER)
@@ -40,8 +39,8 @@ public class NormalUser implements UserDetails {
     @Basic(optional = false, fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
     private Role role;
-    @OneToOne(mappedBy = "user")
-    private RankingUser rankingUser;
+//    @OneToOne(mappedBy = "user")
+//    private RankingUser rankingUser;
 
     public NormalUser(@NonNull String fullName, @NonNull String userName, @NonNull String password, @NonNull boolean gender) {
         this.fullName = fullName;

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/AstronautGame/Stats")
+@RequestMapping("api/v1/auth/astronaut-game/stats")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class GameController {
-    @GetMapping("/Rankings")
+    @GetMapping()
     public String[] getRankings(){
 //        JsonArray jsonArray = new JsonArray();
 //        List<NormalUser> users = FileParser.parseUsersFile("RankingUsers", new RankingDeserializer());

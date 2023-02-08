@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Response<T>{
-    private T message;
+public class RegistrationResponse{
+    private String token;
 }
