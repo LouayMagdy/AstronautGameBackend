@@ -2,7 +2,7 @@ package com.example.astronautgamebackend.GameService.Movables.Intrinsics;
 
 import com.example.astronautgamebackend.GameService.GeometricShapes.Circle;
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
-import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.gameLoop.IGame;
 import com.example.astronautgamebackend.GameService.Movables.XChanger.XChanger;
 import com.example.astronautgamebackend.GameService.Movers.Evaluator;
 

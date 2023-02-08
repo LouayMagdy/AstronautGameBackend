@@ -1,4 +1,4 @@
-package com.example.astronautgamebackend.GameService;
+package com.example.astronautgamebackend.GameService.gameLoop;
 
 import com.example.astronautgamebackend.GameService.Movables.IMovable;
 

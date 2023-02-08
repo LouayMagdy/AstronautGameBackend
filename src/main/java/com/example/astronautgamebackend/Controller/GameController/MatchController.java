@@ -2,9 +2,9 @@ package com.example.astronautgamebackend.Controller.GameController;
 
 import com.example.astronautgamebackend.GameService.Astronaut.Astronaut;
 import com.example.astronautgamebackend.GameService.Astronaut.IAstronaut;
-import com.example.astronautgamebackend.GameService.Game;
+import com.example.astronautgamebackend.GameService.gameLoop.Game;
 import com.example.astronautgamebackend.GameService.GeometricShapes.Circle;
-import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.gameLoop.IGame;
 import com.example.astronautgamebackend.GameService.RankingService.RankingEvaluator;
 import com.example.astronautgamebackend.JsonParserWriter.GameDeserializer.GameDeserializer;
 import com.example.astronautgamebackend.JsonParserWriter.GameSerializer.GameSerializerDuringGame;
@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@ServerEndpoint(value = "/AstronautGame/Match", encoders = GameSerializerDuringGame.class, decoders = GameDeserializer.class)
+@ServerEndpoint(value = "/astronaut-game/match", encoders = GameSerializerDuringGame.class, decoders = GameDeserializer.class)
 public class MatchController {
     private final Map<String, IGame> runningGames;
 
@@ -35,7 +35,7 @@ public class MatchController {
         // Get session and WebSocket connection
         System.out.println("someone has started a match with id: " + session.getId());
         List<Circle> circles = new ArrayList<>();
-        IGame game = new Game(100, 100, new Astronaut(circles), 0);
+        IGame game = new Game(100, 100, new Astronaut(circles), null);
         this.runningGames.put(session.getId(), game);
         game.play();
         session.getBasicRemote().sendObject(game);
@@ -49,7 +49,7 @@ public class MatchController {
         IAstronaut astronaut = runningGame.getAstronaut();
         astronaut.setCircles(game.getAstronaut().getCircles());
         runningGame.setDimensions(game.getWidth(), game.getHeight());
-        runningGame.setId(game.getUserID());
+        if(runningGame.getUserToken() == null) runningGame.setUserToken(game.getUserToken());
         if (!runningGame.isRunning()) onClose(session);
         session.getBasicRemote().sendObject(runningGame);
     }

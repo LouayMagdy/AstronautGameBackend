@@ -1,6 +1,6 @@
 package com.example.astronautgamebackend.JsonParserWriter.GameSerializer;
 
-import com.example.astronautgamebackend.GameService.Game;
+import com.example.astronautgamebackend.GameService.gameLoop.Game;
 import com.example.astronautgamebackend.GameService.Movables.IMovable;
 import com.example.astronautgamebackend.GameService.Movables.Movable;
 import com.google.gson.*;

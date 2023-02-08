@@ -1,4 +1,4 @@
-package com.example.astronautgamebackend.GameService;
+package com.example.astronautgamebackend.GameService.gameLoop;
 
 import com.example.astronautgamebackend.GameService.Astronaut.IAstronaut;
 import com.example.astronautgamebackend.GameService.Movables.Intrinsics.IMovIntrinsic;
@@ -19,6 +19,8 @@ public interface IGame {
     void terminateGame();
     List<IMovable> getMovables();
     List<Integer> getEmptyIndices();
-    int getUserID();
-    void setId(int id);
+
+    String getUserToken();
+    void setUserToken(String token);
 }
+

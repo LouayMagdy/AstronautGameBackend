@@ -1,7 +1,7 @@
 package com.example.astronautgamebackend.GameService.Movables.Intrinsics;
 
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
-import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.gameLoop.IGame;
 import com.example.astronautgamebackend.GameService.Movables.XChanger.XChanger;
 
 public class IntrinsicRock extends IMovIntrinsic {

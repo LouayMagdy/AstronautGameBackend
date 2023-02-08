@@ -1,8 +1,6 @@
 package com.example.astronautgamebackend.GameService.RankingService;
 
-import com.example.astronautgamebackend.GameService.IGame;
-import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.model.NormalUser;
-import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.model.RankingUser;
+import com.example.astronautgamebackend.GameService.gameLoop.IGame;
 import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.repo.RankRepository;
 import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

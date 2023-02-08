@@ -1,7 +1,7 @@
 package com.example.astronautgamebackend.JsonParserWriter.GameSerializer;
 
-import com.example.astronautgamebackend.GameService.Game;
-import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.gameLoop.Game;
+import com.example.astronautgamebackend.GameService.gameLoop.IGame;
 import com.google.gson.GsonBuilder;
 
 import javax.websocket.EncodeException;
