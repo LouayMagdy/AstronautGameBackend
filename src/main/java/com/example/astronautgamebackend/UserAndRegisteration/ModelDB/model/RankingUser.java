@@ -9,6 +9,10 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
+@Table(name = "RankingUser", indexes = {
+        @Index(name = "idx_rankinguser", columnList = "avgCollectedFood"),
+        @Index(name = "idx_rankinguser_avglife", columnList = "avgLife")
+})
 @Slf4j
 @NoArgsConstructor
 public class RankingUser {

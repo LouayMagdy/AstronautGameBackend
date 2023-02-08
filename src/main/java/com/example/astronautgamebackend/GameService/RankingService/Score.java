@@ -11,4 +11,10 @@ public class Score {
     private int avgLife;
     private int avgCollectedFood;
     private int gamesPlayed;
+
+    public Score() {
+        this.avgLife = 0;
+        this.avgCollectedFood = 0;
+        this.gamesPlayed = 0;
+    }
 }

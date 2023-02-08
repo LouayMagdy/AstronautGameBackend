@@ -1,7 +1,9 @@
 
 
-- spring security
-- table having tokens, primary key of the current tables
 - sweeper needs to be @scheduled
 - getting ranking
 - evaluating ranking
+
+** front end **
+- caching jwt at the frontend
+- fixing navigation as it depends on id not token

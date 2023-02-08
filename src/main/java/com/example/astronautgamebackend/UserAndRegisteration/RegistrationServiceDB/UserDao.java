@@ -58,9 +58,7 @@ public class UserDao implements IUserRegisterer{
 
     public String authenticate(LoggingUser loggingUser){
         try{
-            System.out.println(loggingUser.getUserName() + "...." + loggingUser.getPassword());
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loggingUser.getUserName(), loggingUser.getPassword()));
-            System.out.println(loggingUser.getUserName() + "...." + loggingUser.getPassword());
             var user = this.userRepository.findNormalUserByUserName(loggingUser.getUserName()).orElseThrow();
             return jwtService.generateToken(user.getUsername());
         }catch (Exception e){

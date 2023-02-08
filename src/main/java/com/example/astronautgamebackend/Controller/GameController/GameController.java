@@ -1,26 +1,28 @@
 package com.example.astronautgamebackend.Controller.GameController;
 
+import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.model.RankingUser;
+import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.repo.RankRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/auth/astronaut-game/stats")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class GameController {
+    @Autowired
+    private RankRepository rankRepository;
     @GetMapping()
-    public String[] getRankings(){
-//        JsonArray jsonArray = new JsonArray();
-//        List<NormalUser> users = FileParser.parseUsersFile("RankingUsers", new RankingDeserializer());
-//        System.out.println(users.get(0).getScore().getGamePlayed());
-//        GsonBuilder gsonBuilder = new GsonBuilder();
-//        gsonBuilder.registerTypeAdapter(NormalUser.class, new CustomRankingSerializer());
-//        Gson gson = gsonBuilder.create();
-//        for(int i = 0; i< users.size(); i++) jsonArray.add(gson.toJson(users.get(i)));
-//        String[] res = new String[jsonArray.size()];
-//        for(int i = 0; i< users.size(); i++) res[i] = jsonArray.get(i).getAsString();
-//        return res;
-        return new String[1];
+    public List<RankingUser> getRankings(Authentication authentication){
+        String userName = authentication.getName();
+        System.out.println(userName + "........");
+        return rankRepository.findByOrderByAvgCollectedFoodDescAvgLifeDesc();
     }
 }
