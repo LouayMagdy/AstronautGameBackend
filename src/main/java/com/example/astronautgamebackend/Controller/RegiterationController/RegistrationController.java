@@ -1,5 +1,6 @@
 package com.example.astronautgamebackend.Controller.RegiterationController;
 
+import com.example.astronautgamebackend.Controller.RegiterationController.dto.NormalUserDto;
 import com.example.astronautgamebackend.Controller.Response.Response;
 import com.example.astronautgamebackend.UserAndRegisteration.ModelDB.model.NormalUser;
 import com.example.astronautgamebackend.UserAndRegisteration.RegistrationServiceDB.*;
@@ -17,7 +18,7 @@ public class RegistrationController {
     @Autowired
     private IUserRegisterer userRegisterer;
     @PostMapping("/SignUp")
-    public ResponseEntity<Response<String>> signUp(@RequestBody NormalUser user){
+    public ResponseEntity<Response<String>> signUp(@RequestBody NormalUserDto user){
         boolean success = userRegisterer.addUser(user);
         return success? ResponseEntity.status(HttpStatus.CREATED).body(new Response<>("User Added Successfully")) :
                 ResponseEntity.status(HttpStatus.FORBIDDEN).body(new Response<>("User Already Registered"));

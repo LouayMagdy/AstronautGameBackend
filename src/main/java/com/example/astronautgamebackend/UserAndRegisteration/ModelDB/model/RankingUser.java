@@ -18,7 +18,7 @@ public class RankingUser {
     private int id;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn(name = "user_name", referencedColumnName = "userName", unique = true)
     private NormalUser user;
 
     @Basic(optional = false, fetch = FetchType.EAGER)
