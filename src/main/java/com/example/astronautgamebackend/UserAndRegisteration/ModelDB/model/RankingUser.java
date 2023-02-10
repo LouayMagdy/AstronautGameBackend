@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @Entity
 @Table(name = "RankingUser", indexes = {
-        @Index(name = "idx_rankinguser", columnList = "avgCollectedFood"),
+        @Index(name = "idx_rankinguser", columnList = "maxCollectedFood"),
         @Index(name = "idx_rankinguser_avglife", columnList = "avgLife")
 })
 @Slf4j
@@ -29,7 +29,7 @@ public class RankingUser {
     private int avgLife;
 
     @Basic(optional = false, fetch = FetchType.EAGER)
-    private int avgCollectedFood;
+    private int maxCollectedFood;
 
     @Basic(optional = false, fetch = FetchType.EAGER)
     private int gamesPlayedNum;
@@ -37,7 +37,7 @@ public class RankingUser {
     public RankingUser(NormalUser user, int avgLife, int avgCollectedFood, int gamesPlayedNum) {
         this.user = user;
         this.avgLife = avgLife;
-        this.avgCollectedFood = avgCollectedFood;
+        this.maxCollectedFood = avgCollectedFood;
         this.gamesPlayedNum = gamesPlayedNum;
     }
 }

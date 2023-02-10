@@ -12,14 +12,12 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 public class WSConfigurer implements WebSocketConfigurer{
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-//        registry.addHandler(new MatchController(), "/AstronautGame/Match")
-//                .addInterceptors(new HttpSessionHandshakeInterceptor());
+//        registry.addHandler((WebSocketHandler) new MatchController(), "api/v1/auth/astronaut-game/match");
     }
     @Bean
-    public MatchController echoWebSocket() {
-        return new MatchController();
+    public MatchWSController echoWebSocket() {
+        return new MatchWSController();
     }
-
     @Bean
     public ServerEndpointExporter serverEndpointExporter() {
         return new ServerEndpointExporter();

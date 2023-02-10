@@ -1,8 +1,6 @@
 
 
 - sweeper needs to be @scheduled
-- getting ranking
-- evaluating ranking
 
 ** front end **
 - caching jwt at the frontend

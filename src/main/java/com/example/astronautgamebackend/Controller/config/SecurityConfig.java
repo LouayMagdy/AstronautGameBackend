@@ -26,6 +26,7 @@ public class SecurityConfig {
                     .csrf().disable()
                     .authorizeHttpRequests()
                     .antMatchers("/api/v1/auth/astronaut-game/**").permitAll()
+                    .antMatchers("api/v1/auth/astronaut-game/match").permitAll()
                     .anyRequest().authenticated().and()
                     .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                     .authenticationProvider(authenticationProvider)
