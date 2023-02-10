@@ -15,16 +15,19 @@ public class FactoryThread extends Thread{
     }
     @Override
     public void run(){
+        setName("Factory thread is working");
         while (game.isRunning()){
-            if(this.game.getMovableCount() == 25) continue;
-            int x = random.nextInt(3);
-            IMovIntrinsic iMovIntrinsic = (x < 1)? IntrinsicFood.getInstance() : IntrinsicRock.getIntrinsicRock();
-            this.game.createMovable(iMovIntrinsic);
-            System.out.println("new movable created");
             try {
+                System.out.println("factory: " + this.game.getMovableCount());
+                if(this.game.getMovableCount() == 25) continue;
+                int x = random.nextInt(3);
+                IMovIntrinsic iMovIntrinsic = (x < 1)? IntrinsicFood.getInstance() : IntrinsicRock.getIntrinsicRock();
+                this.game.createMovable(iMovIntrinsic);
+                System.out.println("new movable created");
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
             }
         }
         game.terminateGame();

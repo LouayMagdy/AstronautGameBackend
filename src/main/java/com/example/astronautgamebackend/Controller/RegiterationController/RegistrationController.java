@@ -25,17 +25,11 @@ public class RegistrationController {
         return success? ResponseEntity.status(HttpStatus.CREATED).body(new RegistrationResponse(jwtService.generateToken(user.getUserName()))) :
                 ResponseEntity.status(HttpStatus.FORBIDDEN).body(new RegistrationResponse("No Token cuz The User Already Registered"));
     }
-
     @PostMapping("/sign-in")
     public ResponseEntity<RegistrationResponse> signIn(@RequestBody LoggingUser user){
         String jwt = userRegisterer.authenticate(user);
         return (jwt != null)? ResponseEntity.status(HttpStatus.ACCEPTED).body(new RegistrationResponse(jwt)) :
         ResponseEntity.status(HttpStatus.FORBIDDEN).body(new RegistrationResponse("No Token cuz The User Not Registered"));
     }
-//
-//    @DeleteMapping("/LogOut/{userID}")
-//    public void logOut(@PathVariable int userID){
-//        registerer.logOut(new NormalUser(userID));
-//    }
 
 }

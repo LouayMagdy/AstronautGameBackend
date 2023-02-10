@@ -23,7 +23,7 @@ public abstract class IMovIntrinsic {
             if (c.getRadius() + this.getRadius() > Evaluator.getDistance(new Point(c.getX(), c.getY()), currPos)) {
                 game.getAstronaut().changeLife(this.addEnergy());
                 doesCollide(true);
-                currPos = new Point(-1, -1);
+                currPos = new Point(-100, -100);
                 break;
             }
         }

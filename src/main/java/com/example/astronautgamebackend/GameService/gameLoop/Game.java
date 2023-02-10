@@ -29,8 +29,8 @@ public class Game implements IGame{
     private int height;
     private boolean isRunning;
     private final Random random;
-    private final List<IMovable> movables;
-    private final List<Integer> emptyIndices;
+    private List<IMovable> movables;
+    private List<Integer> emptyIndices;
 
     public Game(int width, int height, IAstronaut astronaut, String userToken) {
         this.userToken = userToken;
@@ -46,9 +46,7 @@ public class Game implements IGame{
     @Override
     public void play() {
         FactoryThread factoryThread = new FactoryThread(this);
-        SweeperThread sweeperThread = new SweeperThread(this);
         factoryThread.start();
-        sweeperThread.start();
     }
 
     @Override

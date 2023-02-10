@@ -33,6 +33,12 @@ public class Movable implements IMovable{
     public Point getPosition() {
         return this.point;
     }
+
+    @Override
+    public void setPosition(int x, int y) {
+        this.point = new Point(x, y);
+    }
+
     @Override
     public int addEnergy() {
         return iMovIntrinsic.addEnergy();
@@ -47,7 +53,7 @@ public class Movable implements IMovable{
     @Override
     public boolean move(IAstronaut astronaut) {
         this.point = this.iMovIntrinsic.move(this.game, this.getMoverFn(), this.xChanger, this.point);
-        return this.point.getX() != -1 && this.point.getY() != -1;
+        return this.point.getX() > -1 && this.point.getY() > -1;
     }
     @Override
     public String getType() {

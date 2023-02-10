@@ -1,7 +1,0 @@
-
-
-- sweeper needs to be @scheduled
-
-** front end **
-- caching jwt at the frontend
-- fixing navigation as it depends on id not token
