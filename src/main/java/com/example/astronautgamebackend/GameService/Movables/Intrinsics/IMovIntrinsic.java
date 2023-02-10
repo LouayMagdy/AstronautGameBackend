@@ -2,7 +2,7 @@ package com.example.astronautgamebackend.GameService.Movables.Intrinsics;
 
 import com.example.astronautgamebackend.GameService.GeometricShapes.Circle;
 import com.example.astronautgamebackend.GameService.GeometricShapes.Point;
-import com.example.astronautgamebackend.GameService.IGame;
+import com.example.astronautgamebackend.GameService.gameLoop.IGame;
 import com.example.astronautgamebackend.GameService.Movables.XChanger.XChanger;
 import com.example.astronautgamebackend.GameService.Movers.Evaluator;
 
@@ -23,7 +23,7 @@ public abstract class IMovIntrinsic {
             if (c.getRadius() + this.getRadius() > Evaluator.getDistance(new Point(c.getX(), c.getY()), currPos)) {
                 game.getAstronaut().changeLife(this.addEnergy());
                 doesCollide(true);
-                currPos = new Point(-1, -1);
+                currPos = new Point(-100, -100);
                 break;
             }
         }

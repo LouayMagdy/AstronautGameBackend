@@ -1,41 +1,20 @@
 package com.example.astronautgamebackend.GameService.RankingService;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@AllArgsConstructor
+@Setter
+@Getter
 public class Score {
-    private int avgLife;
-    private int avgCollectedFood;
+    private int life;
+    private int collectedFood;
     private int gamesPlayed;
 
-//    public Score(int avgLife, int avgCollectedFood) {
-//        this.avgLife = avgLife;
-//        this.avgCollectedFood = avgCollectedFood;
-//    }
-
-    public Score(int avgLife, int avgCollectedFood, int gamePlayed) {
-        this.avgLife = avgLife;
-        this.avgCollectedFood = avgCollectedFood;
-        this.gamesPlayed = gamePlayed;
-    }
-    public int getAvgLife() {
-        return avgLife;
-    }
-
-    public void setAvgLife(int avgLife) {
-        this.avgLife = avgLife;
-    }
-
-    public int getAvgCollectedFood() {
-        return avgCollectedFood;
-    }
-
-    public void setAvgCollectedFood(int avgCollectedFood) {
-        this.avgCollectedFood = avgCollectedFood;
-    }
-
-    public int getGamePlayed() {
-        return gamesPlayed;
-    }
-
-    public void setGamePlayed(int gamePlayed) {
-        this.gamesPlayed = gamePlayed;
+    public Score() {
+        this.life = 0;
+        this.collectedFood = 0;
+        this.gamesPlayed = 0;
     }
 }

@@ -28,6 +28,7 @@ public class Astronaut implements IAstronaut{
 
     @Override
     public Point getPosition() {
+        if(circles.isEmpty()) return new Point(0, 0);
         return new Point(circles.get(1).getX(), circles.get(1).getY());
     }
 

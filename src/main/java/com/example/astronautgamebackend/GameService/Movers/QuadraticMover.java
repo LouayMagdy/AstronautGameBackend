@@ -19,8 +19,8 @@ public class QuadraticMover implements IMover{
         Point mini = new Point(Math.min(astronautPos.getX(), initialPos.getX()), Math.min(astronautPos.getY(), initialPos.getY()));
         Point maxi = new Point(Math.max(astronautPos.getX(), initialPos.getX()), Math.max(astronautPos.getY(), initialPos.getY()));
         Random random = new Random();
-        int x = mini.getX() + random.nextInt(Math.abs(maxi.getX() - mini.getX()));
-        int y = mini.getY() + random.nextInt(Math.abs(maxi.getY() - mini.getY()));
+        int x = mini.getX() + random.nextInt(Math.max(Math.abs(maxi.getX() - mini.getX()), 200));
+        int y = mini.getY() + random.nextInt(Math.max(Math.abs(maxi.getY() - mini.getY()), 200));
         List<Point> points = new ArrayList<>();
         points.add(astronautPos);
         points.add(new Point(x, y));

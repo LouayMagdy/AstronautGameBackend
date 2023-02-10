@@ -17,16 +17,20 @@ public class MovableThread extends Thread{
         while (movable.getPosition().getX() > -1 && movable.getPosition().getX() <= movable.getGame().getWidth() &&
                 movable.getPosition().getY() > -1 && movable.getPosition().getY() <= movable.getGame().getHeight() &&
                 movable.getGame().isRunning()){
-//            System.out.println("curve: " + movable.getMoverFn() + "Point" + movable.getPosition().toString());
-            System.out.println("life = " + movable.getAstronaut().getLife());
-            boolean result = movable.move(movable.getAstronaut());
-            if(!result) Thread.yield();
             try {
+                setName("movable : " + index);
+    //            System.out.println("curve: " + movable.getMoverFn() + "Point" + movable.getPosition().toString());
+                System.out.println("life = " + movable.getAstronaut().getLife());
+                boolean result = movable.move(movable.getAstronaut());
+                if(!result) Thread.yield();
                 Thread.sleep(500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println(e.getMessage());
+                if(!emptyIndices.contains(index)) emptyIndices.add(index);
+                Thread.yield();
             }
         }
-        emptyIndices.add(index);
+        if(!emptyIndices.contains(index)) emptyIndices.add(index);emptyIndices.add(index);
     }
 }
