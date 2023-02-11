@@ -21,6 +21,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="master" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
@@ -103,7 +116,7 @@
       <workItem from="1665686642538" duration="29000" />
       <workItem from="1674827076979" duration="52953000" />
       <workItem from="1675701900491" duration="49617000" />
-      <workItem from="1676034226015" duration="12604000" />
+      <workItem from="1676034226015" duration="20713000" />
     </task>
     <servers />
   </component>
